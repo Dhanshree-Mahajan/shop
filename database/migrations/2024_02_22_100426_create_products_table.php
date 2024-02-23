@@ -11,21 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product1', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->double('price',10,2);
             $table->double('compare_price',10,2)->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            
             $table->enum('is_featured',['Yes','No'])->default('No');
             $table->string('sku');
             $table->string('barcode')->nullable();
             $table->enum('track_qty',['Yes','No'])->default('Yes');
             $table->integer('qty')->nullable();
-            $table->integer('status')->default(1);
+            $table->integer('status')->deafault(1);
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product1');
+        Schema::dropIfExists('products');
     }
 };

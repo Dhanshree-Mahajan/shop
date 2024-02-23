@@ -8,7 +8,7 @@ use App\Http\Controllers\admin\CategoryController;
 
 use App\Http\Controllers\admin\TempImagesController;
 use App\Http\Controllers\admin\ProductController;
-use App\Http\Controllers\admin\Product1Controller;
+
 use Illuminate\Http\Request;
 
 /*
@@ -50,15 +50,24 @@ Route::group(['prefix'=>'admin'],function(){
          Route::delete('/categories/{category}',[CategoryController::class,'destroy'])->name('categories.delete');
 
 
-         //Product Routes
-         Route::get('/products',[ProductController::class,'index'])->name('products.index');
-         Route::get('/products/create',[ProductController::class,'create'])->name('products.create');
-         Route::post('/products',[ProductController::class,'store'])->name('product.store');
+          // Products Routes____
+          Route::get('/products',[ProductController::class,'index'])->name('products.index');
+          Route::get('/products/create',[ProductController::class,'create'])->name('products.create');
+          Route::post('/products',[ProductController::class,'store'])->name('products.store');
+
+
+
+
+
+
+
+        //  //Product Routes
+        //  Route::get('/products',[ProductController::class,'index'])->name('products.index');
+        //  Route::get('/products/create',[ProductController::class,'create'])->name('products.create');
+        //  Route::post('/products',[ProductController::class,'store'])->name('product.store');
+
 
          
-         //product1 routes
-         Route::get('/product1/create',[Product1Controller::class,'create'])->name('product1.create');
-         Route::post('/product1',[Product1Controller::class,'store'])->name('product1.store');
 
 
          //temp-images.create 

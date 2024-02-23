@@ -22,6 +22,7 @@ class TempImagesController extends Controller
 
             $image->move(public_path().'/temp',$newName);
 
+            // Generate thumbnail
             $sourcePath = public_path().'/temp/'.$newName;
             $destPath = public_path().'/temp/thumb/'.$newName;
           $image =  Image::make($sourcePath);
@@ -31,7 +32,7 @@ class TempImagesController extends Controller
             return response()->json([
                 'status'=>true,
                 'image_id'=>$tempImage->id,
-                'image_path'=> asset('/temp/thumb/'.$newName),
+                'ImagePath'=> asset('/temp/thumb/'.$newName),
                 'message' =>'Image uploaded Successfully'
             ]);
 
