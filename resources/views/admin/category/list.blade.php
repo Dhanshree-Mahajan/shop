@@ -39,7 +39,7 @@
 								</div>
                               
 							</div>
-                         </form>
+                     </form>
 							<div class="card-body table-responsive p-0">								
 								<table class="table table-hover text-nowrap">
 									<thead>
@@ -57,7 +57,7 @@
                                            @foreach($categories as $category)
 
                                            <tr>
-											<td>{{  $category->id }}</td>
+											<td>{{ $category->id }}</td>
 											<td>{{$category->name}}</td>
 											<td>{{$category->slug}}</td>
 											<td>
@@ -129,8 +129,8 @@
 		var url ='{{ route("categories.delete","ID")}}';
 		   var newUrl = url.replace("ID", id);
          // alert(url);
-		 alert(newUrl);
-		  return false;
+		// alert(newUrl);
+		//  return false;
 
 		if(confirm( 'Are you sure want to Delete this Category ?')){
 			$.ajax({

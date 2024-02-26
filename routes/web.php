@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\CategoryController;
 
 use App\Http\Controllers\admin\TempImagesController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\ProductImageController;
 
 use Illuminate\Http\Request;
 
@@ -46,6 +47,7 @@ Route::group(['prefix'=>'admin'],function(){
          Route::get('/categories/create',[CategoryController::class,'create'])->name('categories.create');
          Route::post('/categories',[CategoryController::class,'store'])->name('categories.store');
          Route::get('/categories/{category}/edit',[CategoryController::class,'edit'])->name('categories.edit');
+         Route::put('/categories/{category}',[CategoryController::class,'update'])->name('categories.update');
 
          Route::delete('/categories/{category}',[CategoryController::class,'destroy'])->name('categories.delete');
 
@@ -54,17 +56,16 @@ Route::group(['prefix'=>'admin'],function(){
           Route::get('/products',[ProductController::class,'index'])->name('products.index');
           Route::get('/products/create',[ProductController::class,'create'])->name('products.create');
           Route::post('/products',[ProductController::class,'store'])->name('products.store');
+          Route::get('/products/{product}/edit',[ProductController::class,'edit'])->name('products.edit');
+          Route::put('/products/{product}',[ProductController::class,'update'])->name('products.update');
+          Route::delete('/products/{product}',[ProductController::class,'destroy'])->name('products.delete');
+         
+          Route::post('/product-images/update',[ProductImageController::class,'update'])->name('product-images.update');
+          Route::delete('/product-images',[ProductImageController::class,'destroy'])->name('product-images.destroy');
 
 
 
-
-
-
-
-        //  //Product Routes
-        //  Route::get('/products',[ProductController::class,'index'])->name('products.index');
-        //  Route::get('/products/create',[ProductController::class,'create'])->name('products.create');
-        //  Route::post('/products',[ProductController::class,'store'])->name('product.store');
+        
 
 
          
